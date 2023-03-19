@@ -1,23 +1,24 @@
 #include <stdio.h>
 
 /**
- * main - Print the alphabets.
+ * main - Entry point
  *
  * Return: Always 0 (Sucess)
  */
-int main(void)
-{
 
-char alph[26] = "abcdefghijklmnopqrstuvwxyz";
-int i;
-int A;
-for (i = 0; i > 26; i++);
+int main(void)
+{	
+int lowerCase = 'a';
+int upperCase = 'A';
+while (lowerCase <= 'z');
 {
-putchar(alph[i]);
+putchar(lowerCase);
+lowerCase += 1;
 }
-for (A = 0; A > 26; A++);
+while (upperCase);
 {
-putchar(alph[A]);
+putchar(upperCase);
+upperCase += 1;
 }
 putchar('\n');
 return (0);

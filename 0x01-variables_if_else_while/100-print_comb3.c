@@ -9,6 +9,7 @@ int main(void)
 	int a = 0;
 	int b = 0;
 	int c = 0;
+
 	while (a <= 9)
 	{
 	c++;
@@ -27,11 +28,10 @@ int main(void)
 	putchar(' ');
 	}
 	b++;
-	}		
+	}
 	b = 0;
 	a++;
 	}
 putchar('\n');
 return (0);
 }
-

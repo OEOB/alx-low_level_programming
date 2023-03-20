@@ -6,33 +6,32 @@
  */
 int main(void)
 {
-int a = '0';
-int b = '0';
+        int a = 0;
+        int b = 0;
+        int c = 0;
 
-while (b < 10)
-{
-a = '0';
-while (a < 10)
-{
-if (b != a && b < a)
-{
-putchar('0' + b);
-putchar('0' + a);
+        while (a <= 9)
+        {
+        c++;
+        b = c;
+        while (b <= 9)
+        {
+        putchar('0' + a);
+        putchar('0' + b);
+        if (a == 8 && b == 9)
+        {
 
-if (a + b != 17)
-{
-putchar(',');
-putchar(' ');
-}
-}
-a++;
-}
-a = '0';
-b++;
-}
-b = '0';
-{
-}
-putchar('\n');
+        }
+        else
+        {
+        putchar(',');
+        putchar(' ');
+        }
+        b++;                            }
+        b = 0;
+        a++;
+        }
+        putchar('\n');
 return (0);
 }
+

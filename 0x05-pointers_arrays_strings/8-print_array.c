@@ -2,21 +2,23 @@
 #include "main.h"
 
 /**
- * print_array - Print n element of array
+ * print_array - Print n element of array followed by a new line
  * @a: array
  * @n: number of elements
- * Return: nothing
+ *
  */
 
 void print_array(int *a, int n)
 {
-int inc;
-for (inc = 0; inc < 9; inc++)
+int index_of_array;
+
+for (index_of_array = 0; index_of_array < 9; index_of_array++)
 {
-if (inc != n - 1)
-printf("%d, ", a[inc]);
-else
-printf("%d", a[inc]);
+printf("%d, ", a[index_of_array]);
+if (index_of_array != (n - 1))
+{
+printf(",");
 }
-putchar(0);
+}
+putchar('\n');
 }

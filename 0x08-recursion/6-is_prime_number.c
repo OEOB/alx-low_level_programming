@@ -3,7 +3,7 @@
 int actual_prime(int n, int a);
 
 /**
- * is_prime_number - function that returns 1 if the input integer is a prime number
+ * is_prime_number - returns 1 if the input integer is a prime number
  * @n: input integer
  *
  * Return: 1 if n is a prime number, otherwise 0
@@ -16,7 +16,7 @@ return (actual_prime(n, n - 1));
 }
 
 /**
- * actual_prime - function that calculates if a number is prime recursively
+ * actual_prime - calculates if a number is prime recursively
  * @n: number
  * @a: iterator
  *

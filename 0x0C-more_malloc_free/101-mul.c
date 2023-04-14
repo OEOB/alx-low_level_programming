@@ -11,27 +11,27 @@
  */
 void _is_zero(char *argv[])
 {
-int a, isn1 = 1, isn2 = 1;
+	int i, isn1 = 1, isn2 = 1;
 
-for (a = 0; argv[1][a]; a++)
-if (argv[1][a] != '0')
-{
-isn1 = 0;
-break;
-}
+	for (i = 0; argv[1][i]; i++)
+		if (argv[1][i] != '0')
+		{
+			isn1 = 0;
+			break;
+		}
 
-for (a = 0; argv[2][a]; a++)
-if (argv[2][a] != '0')
-{
-isn2 = 0;
-break;
-}
+	for (i = 0; argv[2][i]; i++)
+		if (argv[2][i] != '0')
+		{
+			isn2 = 0;
+			break;
+		}
 
-if (isn1 == 1 || isn2 == 1)
-{
-printf("0\n");
-exit(0);
-}
+	if (isn1 == 1 || isn2 == 1)
+	{
+		printf("0\n");
+		exit(0);
+	}
 }
 
 /**
@@ -43,12 +43,12 @@ exit(0);
  */
 char *_initialize_array(char *ar, int lar)
 {
-int a = 0;
+	int i = 0;
 
-for (a = 0; a < lar; a++)
-ar[a] = '0';
-ar[lar] = '\0';
-return (ar);
+	for (i = 0; i < lar; i++)
+		ar[i] = '0';
+	ar[lar] = '\0';
+	return (ar);
 }
 
 /**
@@ -61,16 +61,16 @@ return (ar);
  */
 int _checknum(char *argv[], int n)
 {
-int bc;
+	int ln;
 
-for (bc = 0; argv[n][bc]; bc++)
-if (!isdigit(argv[n][bc]))
-{
-printf("Error\n");
-exit(98);
-}
+	for (ln = 0; argv[n][ln]; ln++)
+		if (!isdigit(argv[n][ln]))
+		{
+			printf("Error\n");
+			exit(98);
+		}
 
-return (bc);
+	return (ln);
 }
 
 /**
@@ -83,44 +83,44 @@ return (bc);
  */
 int main(int argc, char *argv[])
 {
-int bc1, bc2, bcout, add, addl, a, j, k, ca;
-char *cout;
+	int ln1, ln2, lnout, add, addl, i, j, k, ca;
+	char *nout;
 
-if (argc != 3)
-printf("Error\n"), exit(98);
-bc1 = _checknum(argv, 1), bc2 = _checknum(argv, 2);
-_is_zero(argv), bcout = bc1 + bc2, cout = malloc(bcout + 1);
-if (cout == NULL)
-printf("Error\n"), exit(98);
-cout = _initialize_array(cout, bcout);
-k = bcout - 1, a = bc1 - 1, j = bc2 - 1, ca = addl = 0;
-for (; k >= 0; k--, a--)
-{
-if (a < 0)
-{
-if (addl > 0)
-{
-add = (cout[k] - '0') + addl;
-if (add > 9)
-cout[k - 1] = (add / 10) + '0';
-cout[k] = (add % 10) + '0';
-}
-a = bc1 - 1, j--, addl = 0, ca++, k = bcout - (1 + ca);
-}
-if (j < 0)
-{
-if (cout[0] != '0')
-break;
-bcout--;
-free(cout), cout = malloc(bcout + 1), cout = _initialize_array(cout, bcout);
-k = bcout - 1, a = bc1 - 1, j = bc2 - 1, ca = addl = 0;
-}
-if (j >= 0)
-{
-add = ((argv[1][a] - '0') * (argv[2][j] - '0')) + (cout[k] - '0') + addl;
-addl = add / 10, cout[k] = (add % 10) + '0';
-}
-}
-printf("%s\n", cout);
-return (0);
+	if (argc != 3)
+		printf("Error\n"), exit(98);
+	ln1 = _checknum(argv, 1), ln2 = _checknum(argv, 2);
+	_is_zero(argv), lnout = ln1 + ln2, nout = malloc(lnout + 1);
+	if (nout == NULL)
+		printf("Error\n"), exit(98);
+	nout = _initialize_array(nout, lnout);
+	k = lnout - 1, i = ln1 - 1, j = ln2 - 1, ca = addl = 0;
+	for (; k >= 0; k--, i--)
+	{
+		if (i < 0)
+		{
+			if (addl > 0)
+			{
+				add = (nout[k] - '0') + addl;
+				if (add > 9)
+					nout[k - 1] = (add / 10) + '0';
+				nout[k] = (add % 10) + '0';
+			}
+			i = ln1 - 1, j--, addl = 0, ca++, k = lnout - (1 + ca);
+		}
+		if (j < 0)
+		{
+			if (nout[0] != '0')
+				break;
+			lnout--;
+			free(nout), nout = malloc(lnout + 1), nout = _initialize_array(nout, lnout);
+			k = lnout - 1, i = ln1 - 1, j = ln2 - 1, ca = addl = 0;
+		}
+		if (j >= 0)
+		{
+			add = ((argv[1][i] - '0') * (argv[2][j] - '0')) + (nout[k] - '0') + addl;
+			addl = add / 10, nout[k] = (add % 10) + '0';
+		}
+	}
+	printf("%s\n", nout);
+	return (0);
 }
